@@ -30,7 +30,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-barbykelly-djangoblog-so8j84hextq.ws-eu110.gitpod.io',
-    '.herokuapp.com'
+    '.herokuapp.com',
+    '8000-barbykelly-djangoblog-so8j84hextq.ws-eu112.gitpod.io',
+    '8000-barbykelly-djangoblog-so8j84hextq.ws-eu111.gitpod.io'
 ]
 
 # Application definition
