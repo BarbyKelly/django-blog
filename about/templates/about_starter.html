@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             {% if "placeholder" in about.profile_image.url %}
-            <img src="{% static 'images/nobody.jpg' %}" width="75%"
-                alt="placeholder image" >
+            <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="{{ about.title }}">
             {% else %}
-            <img src="{{ about.profile_image.url }}" width="75%"
-                alt="{{ about.title }}">
+            <img src="{{ about.profile_image.url }}" class="profile-image" alt="{{ about.title }}">
             {% endif %}
-            </div>
+        </div>
         <div class="col-12 col-md-8">
             <h2>{{ about.title }}</h2>
             {{ about.content | safe }}
@@ -36,6 +34,11 @@
 
             <!-- add your form here. Your submit button should 
                                 have the classes of btn, btn-secondary -->
+            <form method="post">
+                {{ collaborate_form | crispy }}
+                {% csrf_token %}
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </form>
         </div>
     </div>
 </div>
